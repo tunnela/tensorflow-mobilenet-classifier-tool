@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
+  <!-- Load the latest version of TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.1.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+  <style>
+    html, body {
+      font-family: sans-serif;
+    }
+
+    .cross {
+      display: inline-block;
+      padding: 2px 7px;
+      margin: 0 15px 0 2px;
+      color: white;
+      background: red;
+    }
+
+    #file {
+      opacity: 0; 
+      position: absolute; 
+      width: 1px; 
+      height: 1px;
+      clip-path: rect(0,0,0,0); 
+    }
+
+    #console {
+      width: 100%;
+      max-width: 600px;
+      border: 1px solid #000;
+    }
+    
+    #whiteboard {
+      border: 1px solid #000;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .box {
+      padding: 10px 0;
+    }
+
+    .label {
+      margin-right: 10px;
+    }
+
+    .class {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <button><label>Load Model<input type="file" id="file"></label></button>
+    <button id="save">Save Model</button>
+    <button id="remove">Remove Model</button>
+  </div>
+
+  <div class="box">
+    <textarea id="console" rows="10"></textarea>
+  </div>
+
+  <div class="box">
+    <canvas id="whiteboard" width="600" height="600"></canvas>
+  </div>
+
+  <div class="box" id="classes"></div>
+  
+  <div class="box">
+    <button id="new" type="button">New Class / N</button>
+    <button id="add" type="button">Add Canvas to Class / Space</button>
+    <button id="test" type="button">Predict Canvas / Enter</button>
+    <button id="clear" type="button">Clear Canvas / C</button>
+  </div>
+</body>
+</html>
